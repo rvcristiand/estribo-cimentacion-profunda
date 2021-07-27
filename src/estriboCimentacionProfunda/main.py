@@ -1,7 +1,7 @@
 from docxtpl import DocxTemplate
 import math
 
-doc = DocxTemplate("Memoria de cálculos del estribo cim profunda.docx")
+doc = DocxTemplate("/cygdrive/d/Documents/estribo-cimentacion-profunda/src/estriboCimentacionProfunda/Memoria de cálculos del estribo cim profunda.docx")
 
 def design(params):
     # params: parámetros del diseño
@@ -1258,6 +1258,11 @@ def design(params):
     
     return params
 
+def render(params, filename):
+    doc.render(params)
+    doc.save(filename)
+    
+
 if __name__ == '__main__':
     # diseño estribo libro profesor Carlos Vallecilla
     filename = 'test estribo pilotes.docx'
@@ -1267,5 +1272,4 @@ if __name__ == '__main__':
     
     params = design(params)
     
-    doc.render(params)
-    doc.save(filename)
+    render(params, filename)
